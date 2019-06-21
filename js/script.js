@@ -67,10 +67,10 @@ const appendPageLinks = (studentList) => {
          ***/
          a.addEventListener('click', e => {
          for(let v = 0; v <= a.length; b+= 1){
-            a[v].className = '';
+            a[v].className = 'active';
       }
-            e.target.className = 'active';
-            showPage(studentList, e.target.textContent);
+            e.target.className = '';
+            showPage(studentList, e.target.textContent[0]);
       });
    }
 
