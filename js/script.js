@@ -2,46 +2,87 @@
 Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
+/***Hello and welcome to Simone's Projecct Two. Before you jump into my code I want to
+  say thank you for your time and patience in reading my code, as I am new to developing. 
+  Please feel free to leave me comments on what I can improve on. I'm going for a grade
+  of exceeds expectations.
+ ***/
+/***Here I created two global variables the identify students listed as well as how many 
+ * per page.
+ ***/
+const studentList = document.querySelectorAll('li.student-item');
+const itemsPerPage = 10;
+/***I then created a function which shows the ten items to be diplayed
+  per indidvidual page. The function also states that if the items aren't 
+  present do nothing show nothing. I then logged it to the console.
+ ***/
+function showPage(list, pageNumber) {
+   const startIndex = (pageNumber * itemsPerPage) - itemsPerPage;
+   const endIndex = pageNumber * itemsPerPage;
+   for (var i = 0; i<studentList.length; i++) {
+      if(i >= startIndex && i < endIndex){
+         // show the item
+         studentList[i].style.display ='block';
+      }else{
+         // hide the item
+         studentList[i].style.display ='none';
+      }   
+   } 
+
+}
+console.log(showPage(studentList, 1));
+/***This function takes the length of the student list and divides it by
+ the amount of items per page.
+ ***/
+function getNumberOfPages() {
+   return Math.ceil(studentList.length/itemsPerPage);
+}
+/***Here is where I appended my page links that connect to the div tag of 
+  student-items. the page should display 10 items on each page until you get 
+  to the very last page which has 4.  
+ ***/
+const appendPageLinks = (studentList) => {
+   let div = document.createElement('div');
+   let ul = document.createElement('ul');
+
+   let page = document.querySelector('.page');
+   div.setAttribute('class', 'pagination');
+   page.appendChild(div);
+   div.appendChild(ul);
    
-// Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
-
-
-/*** 
-   Add your global variables that store the DOM elements you will 
-   need to reference and/or manipulate. 
+  
    
-   But be mindful of which variables should be global and which 
-   should be locally scoped to one of the two main functions you're 
-   going to create. A good general rule of thumb is if the variable 
-   will only be used inside of a function, then it can be locally 
-   scoped to that function.
-***/
+   for (let i = 0; i < getNumberOfPages(); i += 1) {
+      let li = document.createElement('li');
+      let a = document.createElement('a');
+      li.appendChild(a);
+      ul.appendChild(li);
+      a.textContent = i + 1;
+      
+      /*** studentList[i].addEventListener('click', (event)=> {
+         event.target.textContent= event.target.textContent.toUpperCase();
+      });
+      studentList[i].addEventListener('click', (event) => {
+         event.target.textContent= event.target.textContent.toLowerCase();
+         ***/
+         a.addEventListener('click', e => {
+         for(let v = 0; v <= a.length; b+= 1){
+            a[v].className = '';
+      }
+            e.target.className = 'active';
+            showPage(studentList, e.target.textContent);
+      });
+   }
 
 
+}
+/*** Here I created an appendPageLink function to add, generate, and append the 
+  pages ability to function.
+ ***/
+showPage(studentList,1);
+appendPageLinks();
 
-
-/*** 
-   Create the `showPage` function to hide all of the items in the 
-   list except for the ten you want to show.
-
-   Pro Tips: 
-     - Keep in mind that with a list of 54 students, the last page 
-       will only display four.
-     - Remember that the first student has an index of 0.
-     - Remember that a function `parameter` goes in the parens when 
-       you initially define the function, and it acts as a variable 
-       or a placeholder to represent the actual function `argument` 
-       that will be passed into the parens later when you call or 
-       "invoke" the function 
-***/
-
-
-
-
-/*** 
-   Create the `appendPageLinks function` to generate, append, and add 
-   functionality to the pagination buttons.
-***/
+/***Here is where the functions were called. */
 
 
 
