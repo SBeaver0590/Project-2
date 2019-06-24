@@ -16,7 +16,7 @@ const itemsPerPage = 10;
   per indidvidual page. The function also states that if the items aren't 
   present do nothing show nothing. I then logged it to the console.
  ***/
-function showPage(list, pageNumber, active) {
+function showPage(list, pageNumber) {
    const startIndex = (pageNumber * itemsPerPage) - itemsPerPage;
    const endIndex = pageNumber * itemsPerPage;
    for (var i = 0; i<studentList.length; i++) {
@@ -30,7 +30,6 @@ function showPage(list, pageNumber, active) {
    } 
 
 }
-
 /***This function takes the length of the student list and divides it by
  the amount of items per page.
  ***/
@@ -67,7 +66,6 @@ const appendPageLinks = (studentList) => {
          ***/
          a.addEventListener('click', e => {
          for(let v = 0; v <= a.length; v+= 1) {
-            document.getElementById('a').removeAttribute('e');
             li.classList.remove('v');
             a[v].class = 'active';
       }
