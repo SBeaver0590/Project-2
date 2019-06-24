@@ -65,11 +65,12 @@ const appendPageLinks = (studentList) => {
       studentList[i].addEventListener('click', (event) => {
          event.target.textContent= event.target.textContent.toLowerCase();
          ***/
-      a.addEventListener('click', e => {
-         let link = document.querySelector('.pagination a.active');  
-         link.className ='';
-         e.target.className = 'active';
-         showPage(studentList, e.target.textContent[0]);
+         a.addEventListener('click', e => {
+         for(let v = 0; v <= a.length; b+= 1) {
+            a[v].class = '';
+      }
+            e.target.className = 'active';
+            showPage(studentList, e.target.textContent[0]);
       });
    }
    
