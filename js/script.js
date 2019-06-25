@@ -49,7 +49,9 @@ const appendPageLinks = (studentList) => {
    page.appendChild(div);
    div.appendChild(ul);
    
-  
+ /*** Here I created an appendPageLink function to add, generate, and append the 
+  pages ability to function.
+ ***/ 
    
    for (let i = 0; i < getNumberOfPages(); i += 1) {
       let li = document.createElement('li');
@@ -57,13 +59,12 @@ const appendPageLinks = (studentList) => {
       li.appendChild(a);
       ul.appendChild(li);
       a.textContent = i + 1;
-      /*** studentList[i].addEventListener('click', (event)=> {
-         event.target.textContent= event.target.textContent.toUpperCase();
-      });
-      studentList[i].addEventListener('click', (event) => {
-         event.target.textContent= event.target.textContent.toLowerCase();
-         ***/
-      a.addEventListener('click', (e) => {
+     
+      if (i === 0) {
+         a.className = 'active';   // target the first a
+      }
+
+      a.addEventListener('click', (e) => { //listens for a click to highlight the page number.
          a = document.querySelectorAll(' .pagination a ');
          for(let v = 0; v < a.length; v+= 1) {
             a[v].className = '';
@@ -75,11 +76,9 @@ const appendPageLinks = (studentList) => {
    
 
 }
-/*** Here I created an appendPageLink function to add, generate, and append the 
-  pages ability to function.
- ***/
+/***Here is where the functions were called. */
 showPage(studentList,1);
 appendPageLinks();
 
-/***Here is where the functions were called. */
+
 
