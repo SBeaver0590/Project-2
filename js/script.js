@@ -63,14 +63,13 @@ const appendPageLinks = (studentList) => {
       studentList[i].addEventListener('click', (event) => {
          event.target.textContent= event.target.textContent.toLowerCase();
          ***/
-         a.addEventListener('click', e => {
-            a = querySelectorAll('.pagination a');
-         for(let v = 0; v <= a.length; v+= 1) {
-            classList.remove('active');
-            a[v].class = '';
-      }
-            e.target.className = 'active';
-            showPage(studentList, e.target.textContent);
+      a.addEventListener('click', (e) => {
+         a = document.querySelectorAll(' .pagination a ');
+         for(let v = 0; v < a.length; v+= 1) {
+            a[v].className = '';
+         }
+         e.target.className = 'active';
+         showPage(studentList, e.target.textContent);
       });
    }
    
