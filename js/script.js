@@ -57,7 +57,6 @@ const appendPageLinks = (studentList) => {
       li.appendChild(a);
       ul.appendChild(li);
       a.textContent = i + 1;
-      
       /*** studentList[i].addEventListener('click', (event)=> {
          event.target.textContent= event.target.textContent.toUpperCase();
       });
@@ -65,12 +64,13 @@ const appendPageLinks = (studentList) => {
          event.target.textContent= event.target.textContent.toLowerCase();
          ***/
          a.addEventListener('click', e => {
+            a = querySelectorAll('.pagination a');
          for(let v = 0; v <= a.length; v+= 1) {
-            li.classList.remove('v');
-            a[v].class = 'active';
+            classList.remove('active');
+            a[v].class = '';
       }
-            e.target.className = '';
-            showPage(studentList, e.target.textContent[0]);
+            e.target.className = 'active';
+            showPage(studentList, e.target.textContent);
       });
    }
    
@@ -84,8 +84,3 @@ appendPageLinks();
 
 /***Here is where the functions were called. */
 
-
-
-
-
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
