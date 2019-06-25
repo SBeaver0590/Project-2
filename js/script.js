@@ -4,8 +4,7 @@ FSJS project 2 - List Filter and Pagination
 ******************************************/
 /***Hello and welcome to Simone's Projecct Two. Before you jump into my code I want to
   say thank you for your time and patience in reading my code, as I am new to developing. 
-  Please feel free to leave me comments on what I can improve on. I'm going for a grade
-  of exceeds expectations.
+  Please feel free to leave me comments on what I can improve on.
  ***/
 /***Here I created two global variables the identify students listed as well as how many 
  * per page.
